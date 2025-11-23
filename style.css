@@ -1,0 +1,824 @@
+/* ===========================================================
+   CSS FINAL — Otimizado para Apresentação 16:9 e Puppeteer
+   Autor: Revisado por Gemini Code Assist
+   Projeto: GuarDIA — Pitch Centelha (2025)
+   =========================================================== */
+
+/* =======================
+   ESTILOS GLOBAIS
+   ======================= */
+
+:root {
+    /* Paleta de Cores */
+    --azul-escuro: #003366;
+    --azul-medio: #005B99;
+    --azul-claro: #00AEEF;
+    --cinza-suave: #6F7A86;
+    --branco: #FFFFFF;
+    --fundo-slide: #FFFFFF;
+    --cinza-borda: #EAEFF4;
+
+    /* Tipografia */
+    --font-principal: "Libre Franklin", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-principal);
+    background-color: var(--azul-escuro); /* Fundo escuro para o modo apresentação */
+    color: var(--cinza-suave);
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Impede scroll na página */
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh; /* Ocupa a tela inteira */
+    background-color: var(--fundo-slide);
+    padding: 40px 100px; /* Padding vertical reduzido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden; /* Impede qualquer tipo de scroll ou overflow */
+    gap: 24px; /* Espaçamento padrão reduzido */
+}
+
+.slide-title {
+    font-size: 3.0rem;
+    font-weight: 600;
+    color: var(--azul-escuro);
+    margin-bottom: 0; /* Removido para usar o gap do flexbox */
+}
+
+.slide-text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--cinza-suave);
+    max-width: 1000px;
+    line-height: 1.5;
+    margin-bottom: 8px; /* Espaçamento reduzido */
+}
+
+.slide-number {
+    position: absolute;
+    bottom: 40px;
+    right: 80px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--cinza-suave);
+    opacity: 0.8;
+}
+
+/* =======================
+   SLIDE 1 — CAPA
+   ======================= */
+
+#slide-1.slide-cover {
+    gap: 20px;
+}
+
+.cover-logo img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.cover-title {
+    font-size: 5.2rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    letter-spacing: -1.5px;
+}
+
+.cover-subtitle {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--cinza-suave);
+}
+
+.cover-footer {
+    position: absolute;
+    bottom: 60px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--azul-medio);
+}
+
+/* =======================
+   COMPONENTES REUTILIZÁVEIS: GRID E CARD
+   ======================= */
+
+/* --- Sistema de Grid --- */
+.grid {
+    display: grid;
+    gap: 20px; /* Gap do grid reajustado */
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 24px;
+}
+
+.grid-2-cols { grid-template-columns: repeat(2, 1fr); }
+.grid-3-cols { grid-template-columns: repeat(3, 1fr); }
+.grid-4-cols { grid-template-columns: repeat(4, 1fr); }
+.grid-5-cols { grid-template-columns: repeat(5, 1fr); }
+
+/* --- Componente de Card --- */
+.card {
+    background-color: #F8FAFC;
+    padding: 20px; /* Padding interno do card reajustado */
+    border-radius: 16px;
+    border: 1px solid var(--cinza-borda);
+    box-shadow: 0 2px 8px rgba(0, 91, 153, 0.04); /* Sombra suavizada */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: flex-start; /* Alinha conteúdo ao topo */
+    gap: 12px; /* Gap interno do card reajustado */
+}
+
+.card .icon {
+    font-size: 36px !important; /* Tamanho do ícone reduzido */
+    color: var(--azul-claro);
+    line-height: 1;
+}
+
+/* Correção para o ícone torto do carrinho */
+.fix-cart-icon {
+    transform: translateX(-4px); /* Ajuste fino de centralização */
+}
+
+.card p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--azul-medio);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* =======================
+   SLIDE 4 — OBJETIVO
+   ======================= */
+
+#slide-4.slide-objetivo {
+    gap: 32px; /* Gap reduzido */
+}
+
+.objetivo-principal {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: var(--azul-escuro);
+    line-height: 1.5;
+    max-width: 1100px;
+    padding: 32px 40px; /* Padding reduzido */
+    background-color: #F8FAFC;
+    border-left: 8px solid var(--azul-claro);
+    text-align: center;
+}
+
+.objetivo-reforcos {
+    display: flex;
+    gap: 60px; /* Gap reduzido */
+    margin-top: 24px;
+}
+
+.ref-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.ref-icon {
+    font-size: 32px !important; /* Tamanho do ícone reduzido */
+    color: var(--azul-medio);
+}
+
+.ref-item p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--cinza-suave);
+}
+
+/* =======================
+   SLIDE 6 — COMO FUNCIONA
+   ======================= */
+
+.funciona-grid {
+    display: grid; /* Alterado para grid para melhor responsividade */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px; /* Gap reduzido */
+    width: 100%;
+    max-width: 1400px;
+}
+.funciona-item {
+    flex: 1;
+    background-color: var(--branco);
+    padding: 24px 20px; /* Padding reajustado */
+    border-radius: 16px;
+    border: 1px solid var(--cinza-borda);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+}
+
+.funciona-icon {
+    font-size: 36px !important; /* Tamanho do ícone reduzido */
+    color: var(--azul-claro);
+    background-color: #F0F8FF;
+    padding: 20px; /* Padding do ícone reajustado */
+    border-radius: 50%;
+}
+
+.funciona-item p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--azul-medio);
+    line-height: 1.5;
+}
+
+/* =======================
+   SLIDE 8 — DEMONSTRAÇÃO
+   ======================= */
+
+/* =======================
+   SLIDE 9 — IMPACTO SOCIAL
+   ======================= */
+
+.impacto-card .icon {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-medio);
+}
+
+.impacto-card h3 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-bottom: 8px;
+}
+
+.impacto-card p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cinza-suave);
+    line-height: 1.5;
+}
+
+/* =======================
+   SLIDE 11 — IMPACTO AMBIENTAL
+   ======================= */
+
+.circle-card {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    justify-content: center;
+}
+
+.circle-card h3 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-bottom: 8px;
+}
+
+.circle-card p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cinza-suave);
+    line-height: 1.5;
+}
+
+/* =======================
+   SLIDE 10 — IMPACTO ECONÔMICO
+   ======================= */
+
+.kpi-container.grid {
+    width: 100%;
+    max-width: 1300px;
+}
+
+.kpi-box {
+    background-color: #F8FAFC;
+    padding: 24px; /* Padding reajustado */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.kpi-icon {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+}
+
+.kpi-box p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--cinza-suave);
+}
+
+.kpi-box p strong {
+    color: var(--azul-escuro);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+.grafico-barras {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 24px;
+}
+
+.grafico-barras h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--azul-escuro);
+    margin-bottom: 24px;
+}
+
+.barra-linha {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.barra-linha p {
+    width: 160px;
+    text-align: right;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--cinza-suave);
+}
+
+.barra {
+    height: 40px;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.barra.b1 {
+    width: 100%;
+    background-color: #FFCDD2;
+}
+
+.barra.b2 {
+    width: 35%;
+    background-color: #C8E6C9;
+}
+
+/* =======================
+   SLIDE 12 — MERCADO
+   ======================= */
+
+.mercado-item .icon {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+}
+
+.mercado-item h3 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin: 0;
+}
+
+.mercado-item p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--cinza-suave);
+}
+
+/* =======================
+   SLIDE 13 — TAMANHO DO MERCADO
+   ======================= */
+
+.indicador-mercado {
+    background-color: #F8FAFC;
+    border-left: 8px solid var(--azul-claro);
+    padding: 24px 32px; /* Padding reajustado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.indicador-mercado .material-icons {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+}
+
+.indicador-mercado h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+}
+
+.indicador-mercado p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--cinza-suave);
+}
+
+.grafico-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 60px;
+    width: 100%;
+    max-width: 800px;
+    height: 350px; /* Altura aumentada */
+    margin-top: 24px;
+}
+
+.barra-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 120px; /* Largura fixa para as barras */
+}
+
+.barra-container .barra {
+    width: 100%;
+    background-color: var(--azul-claro);
+    border-radius: 8px 8px 0 0;
+}
+
+.barra-container .barra.barra1 { height: 150px; background-color: var(--azul-medio); }
+.barra-container .barra.barra2 { height: 200px; background-color: var(--azul-claro); }
+.barra-container .barra.barra3 { height: 250px; background-color: var(--azul-escuro); }
+
+.barra-container p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--azul-medio);
+}
+
+/* =======================
+   SLIDE 14 — MODELO DE NEGÓCIO
+   ======================= */
+
+.plano-card {
+    background-color: var(--branco);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 91, 153, 0.05);
+}
+
+.plano-titulo {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-bottom: 12px;
+}
+
+.plano-preco {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--cinza-suave);
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--cinza-borda);
+}
+
+.plano-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.plano-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--azul-medio);
+}
+
+.plano-item .material-icons {
+    font-size: 28px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+}
+
+/* =======================
+   SLIDE 15 — TECNOLOGIA
+   ======================= */
+
+.arquitetura-bloco {
+    align-items: stretch;
+}
+
+.arquitetura-bloco .icon {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-medio);
+}
+
+.arquitetura-bloco h3 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-bottom: 12px;
+}
+
+.arquitetura-bloco ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.arquitetura-bloco li {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--cinza-suave);
+    line-height: 1.6;
+}
+
+/* =======================
+   SLIDE 16 — ESTÁGIO ATUAL
+   ======================= */
+
+.progresso-container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.progresso-container p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--azul-medio);
+    margin-bottom: 16px;
+}
+
+.progresso-barra {
+    width: 100%;
+    height: 32px;
+    background-color: var(--cinza-borda);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.progresso-preenchido {
+    width: 40%;
+    height: 100%;
+    background-color: var(--azul-claro);
+    border-radius: 16px;
+}
+
+.checklist-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: left;
+}
+
+.check-item {
+    background-color: #F8FAFC;
+    padding: 20px; /* Padding reajustado */
+    border-radius: 12px;
+    border: 1px solid var(--cinza-borda);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.check-icon {
+    font-size: 32px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+}
+
+.check-icon.pending {
+    color: #FFB74D;
+}
+
+.check-item p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--cinza-suave);
+}
+
+/* =======================
+   SLIDE 17 — ROADMAP
+   ======================= */
+
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 24px;
+    width: 95%;
+    max-width: 1400px;
+    border-top: 4px solid var(--cinza-borda);
+    margin-top: 24px;
+}
+
+.timeline-item {
+    position: relative;
+    flex: 1;
+    padding: 40px 20px 20px 20px; /* Padding reajustado */
+    text-align: center;
+}
+
+.timeline-icon {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+    background-color: var(--branco);
+    padding: 8px 12px;
+    border-radius: 50%;
+    border: 4px solid var(--cinza-borda);
+    position: absolute;
+    top: -26px; /* Posição ajustada para o novo tamanho do ícone */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.timeline-item p {
+    font-size: 1.4rem;
+    color: var(--cinza-suave);
+    line-height: 1.5;
+}
+
+/* =======================
+   SLIDE 18 — EQUIPE
+   ======================= */
+
+.equipe-card {
+    justify-content: flex-start;
+}
+
+.equipe-card .icon {
+    font-size: 48px !important; /* Ícone reduzido */
+    color: var(--cinza-borda);
+}
+
+.equipe-card h3 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin: 0;
+}
+
+.equipe-card .cargo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--azul-medio);
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.equipe-card .desc {
+    font-size: 1.4rem;
+    color: var(--cinza-suave);
+    line-height: 1.4;
+}
+
+/* =======================
+   SLIDE 19 — PROPRIEDADE INTELECTUAL
+   ======================= */
+
+.propriedade-box {
+    background-color: #F8FAFC;
+    padding: 32px; /* Padding reajustado */
+    border-radius: 16px;
+    border: 1px solid var(--cinza-borda);
+}
+
+.propriedade-icon {
+    font-size: 40px !important; /* Ícone reduzido */
+    color: var(--azul-medio);
+    margin-bottom: 16px;
+}
+
+.propriedade-box h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    margin-bottom: 12px;
+}
+
+.propriedade-box p {
+    font-size: 1.6rem;
+    color: var(--cinza-suave);
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+.propriedade-selos {
+    display: flex;
+    gap: 60px; /* Gap reduzido */
+}
+
+.selo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.selo-icon {
+    font-size: 32px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+}
+
+.selo-item p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--cinza-suave);
+    max-width: 250px;
+}
+
+/* =======================
+   SLIDE 20 — PARCEIROS
+   ======================= */
+
+.parceiro-item {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.parceiro-item .icon {
+    font-size: 36px !important; /* Ícone reduzido */
+    color: var(--azul-claro);
+    margin-top: 4px;
+}
+
+.parceiro-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+/* =======================
+   SLIDE 21 — ENCERRAMENTO
+   ======================= */
+
+.encerramento-icone .material-icons {
+    font-size: 48px !important; /* Ícone reduzido */
+    color: var(--azul-claro); /* Reduzido o tamanho do ícone */
+}
+
+.contato-box {
+    background-color: transparent; /* Fundo transparente */
+    padding: 24px 32px; /* Padding reduzido */
+    border-radius: 16px;
+    border: 1px solid var(--cinza-borda);
+}
+
+.contato-box p {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.6rem;
+    color: var(--cinza-suave);
+}
+
+.contato-box p:last-child {
+    margin-bottom: 0;
+}
+
+.painel-guardia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    margin-bottom: 32px;
+}
+
+.painel-guardia img {
+    max-width: 75%;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
